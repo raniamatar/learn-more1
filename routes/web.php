@@ -1,5 +1,7 @@
 <?php
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\Site2Controller;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,11 +44,12 @@ use Illuminate\Support\Facades\Route;
 // //Route::patch('patch',function(){});
 // Route::delete('delete',function(){});
 Route::get('/',function(){
-    return view('index');
+    return view('Site1.index');
 });
 Route::get('home',function(){
     return view('Site1.home');
 });
+//site1
 
 Route::prefix('site1')->controller(SiteController::class)->name('site.')->group(function(){
     Route::get('/index','index'
@@ -60,4 +63,15 @@ Route::prefix('site1')->controller(SiteController::class)->name('site.')->group(
 
 
 });
-//site1
+//site2
+Route::prefix('site2')->group(function(){
+    Route::get('/',[Site2Controller::class,'index'])->name('index');
+    Route::get('about',[Site2Controller::class,'about'])->name('about');
+    Route::post('post_msg',[Site2Controller::class,'post_msg'])->name('post_msg');
+    Route::get('/view',[Site2Controller::class,'view'])->name('view');
+
+
+});
+
+
+
