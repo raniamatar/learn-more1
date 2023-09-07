@@ -42,7 +42,7 @@
             <div class="mb-3">
                 <label for="">Email</label>
                 <input class="form-control @error('email')
-                is-invalid @enderror"   name="email" id="" placeholder="username">
+                is-invalid @enderror"   name="email" id="" placeholder="email">
                 @error('email')
                     <small class="invalid-feedback">{{ $message }}</small>
                 @enderror
@@ -50,7 +50,7 @@
             <div class="mb-3">
                 <label for="">Age</label>
                 <input class="form-control  @error('age')
-                is-invalid @enderror"  type="number" name="age" id="" placeholder="username">
+                is-invalid @enderror"  type="number" name="age" id="" placeholder="age">
                 @error('age')
                     <small class="invalid-feedback">{{ $message }}</small>
                 @enderror
