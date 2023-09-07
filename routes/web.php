@@ -1,6 +1,8 @@
 <?php
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\Site2Controller;
+use App\Http\Controllers\Form1Controller;
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -73,5 +75,12 @@ Route::prefix('site2')->group(function(){
 
 });
 
+//form1
+Route::get('form1',[Form1Controller::class,'index'])->name('index');
+Route::post('form1Submit',[Form1Controller::class,'form1Submit'])->name('form1Submit');
+
+//form2
+Route::get('form2',[Form1Controller::class,'form2'])->name('form2');
+Route::post('form2Submit',[Form1Controller::class,'form2Submit'])->name('form2Submit');
 
 
