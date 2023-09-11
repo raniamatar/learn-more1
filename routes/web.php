@@ -45,9 +45,7 @@ use Illuminate\Support\Facades\Route;
 // Route::put('put',function(){});
 // //Route::patch('patch',function(){});
 // Route::delete('delete',function(){});
-Route::get('/',function(){
-    return view('Site1.index');
-});
+Route::get('/',[SiteController::class,'index']);
 Route::get('home',function(){
     return view('Site1.home');
 });
@@ -83,4 +81,5 @@ Route::post('form1Submit',[Form1Controller::class,'form1Submit'])->name('form1Su
 Route::get('form2',[Form1Controller::class,'form2'])->name('form2');
 Route::post('form2Submit',[Form1Controller::class,'form2Submit'])->name('form2Submit');
 
+Route::post('form3Submit',[Form1Controller::class,'form3Submit'])->name('form3Submit');
 

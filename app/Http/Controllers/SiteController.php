@@ -8,16 +8,16 @@ class SiteController extends Controller
 {
     function index(){
         $data=[1,2,3,4];
-        $age=16;
+        $age = 19;
         // foreach($data as $i){
         //     echo $i . '<br>';
         // }
         // return view('index')->with('data',$data)->with('age',$age);
-        // return view('index',compact('data','age'));
-        return view('Site1.index',[
-            'data'=>$data,
-            'age'=>$age
-        ]);
+        return view('Site1.index',compact('data','age'));
+        // return view('Site1.index',[
+        //     'data'=>$data,
+        //     'age'=>$age
+        // ]);
 
 
     }

@@ -56,6 +56,14 @@
                 @enderror
             </div>
             <div class="mb-3">
+                <label for="">Password</label>
+                <input class="form-control  @error('password')
+                is-invalid @enderror"  type="password" name="password" id="" placeholder="password">
+                @error('password')
+                    <small class="invalid-feedback">{{ $message }}</small>
+                @enderror
+            </div>
+            {{-- <div class="mb-3">
                 <label for="">City</label>
                 <select name="city" class="form-control  @error('city')
                 is-invalid @enderror" >
@@ -70,7 +78,7 @@
                 @error('city')
                     <small class="invalid-feedback">{{ $message }}</small>
                 @enderror
-            </div>
+            </div> --}}
             <div class="mb-3">
                 <button class="btn btn-success btn-lg w-100" type="submit">Submit</button>
             </div>

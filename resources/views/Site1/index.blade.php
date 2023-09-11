@@ -1,5 +1,5 @@
 <h1>
-    {{$age}}
+    {{ $age }}
 </h1>
 {{'index page'}}<br>
 
