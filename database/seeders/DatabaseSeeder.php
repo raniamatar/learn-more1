@@ -2,6 +2,12 @@
 
 namespace Database\Seeders;
 use App\Models\User;
+use App\Models\Category;
+use App\Models\SubCategory;
+use App\Models\Product;
+
+
+
 use Illuminate\Support\Facades\Hash;
 
 
@@ -23,12 +29,16 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        User::factory()->create([
-            'name'=>'rania',
-            'age'=>22,
-            'email'=>'admin@admin',
-            'password'=>Hash::make('123456789'),
-        ]);
-        // Category::factory(10)->create();
+        // User::factory()->create([
+        //     'name'=>'rania',
+        //     'age'=>22,
+        //     'email'=>'admin@admin',
+        //     'password'=>Hash::make('123456789'),
+        // ]);
+        // Category::factory(20)->create();
+        // SubCategory::factory(40)->create();
+        Product::factory(40)->create();
+
+
     }
 }

@@ -2,8 +2,8 @@
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\Site2Controller;
 use App\Http\Controllers\Form1Controller;
-
-
+use App\Http\Controllers\Site3\Category\CategoryController;
+use App\Http\Controllers\Site3\SubCategory\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -74,7 +74,7 @@ Route::prefix('site2')->group(function(){
 });
 
 //form1
-Route::get('form1',[Form1Controller::class,'index'])->name('index');
+Route::get('form1',[Form1Controller::class,'index'])->name('index2');
 Route::post('form1Submit',[Form1Controller::class,'form1Submit'])->name('form1Submit');
 
 //form2
@@ -82,4 +82,20 @@ Route::get('form2',[Form1Controller::class,'form2'])->name('form2');
 Route::post('form2Submit',[Form1Controller::class,'form2Submit'])->name('form2Submit');
 
 Route::post('form3Submit',[Form1Controller::class,'form3Submit'])->name('form3Submit');
+
+//site3
+Route::prefix('Site3')->name('site3.')->group(function(){
+    Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function(){
+        Route::get('/','index')->name('index');
+
+    });
+    Route::prefix('sub_category')->name('sub_category.')->controller(SubCategoryController::class)
+    ->group(function(){
+        Route::get('/{id}','index')->name('index');
+
+    });
+});
+
+
+
 
