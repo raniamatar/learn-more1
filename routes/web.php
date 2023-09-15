@@ -45,7 +45,8 @@ use Illuminate\Support\Facades\Route;
 // Route::put('put',function(){});
 // //Route::patch('patch',function(){});
 // Route::delete('delete',function(){});
-Route::get('/',[SiteController::class,'index']);
+
+// Route::get('/',[SiteController::class,'index']);
 Route::get('home',function(){
     return view('Site1.home');
 });
@@ -65,7 +66,7 @@ Route::prefix('site1')->controller(SiteController::class)->name('site.')->group(
 });
 //site2
 Route::prefix('site2')->group(function(){
-    Route::get('/',[Site2Controller::class,'index'])->name('index');
+    Route::get('/',[Site2Controller::class,'index'])->name('index1');
     Route::get('about',[Site2Controller::class,'about'])->name('about');
     Route::post('post_msg',[Site2Controller::class,'post_msg'])->name('post_msg');
     Route::get('/view',[Site2Controller::class,'view'])->name('view');
@@ -85,17 +86,34 @@ Route::post('form3Submit',[Form1Controller::class,'form3Submit'])->name('form3Su
 
 //site3
 Route::prefix('Site3')->name('site3.')->group(function(){
-    Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function(){
+    /*Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function(){
         Route::get('/','index')->name('index');
 
-    });
+    });*/
     Route::prefix('sub_category')->name('sub_category.')->controller(SubCategoryController::class)
     ->group(function(){
         Route::get('/{id}','index')->name('index');
 
     });
+
 });
+/*
+Route::get('category',[CategoryController::class,'index'])
+->name('category.index');
+Route::get('/category/create',[CategoryController::class ,'create'])
+->name('category.create');
+Route::post('/category',[CategoryController::class ,'store'])
+->name('category.store');
 
+Route::get('/category/{id}/edit',[CategoryController::class ,'edit'])
+->name('category.edit');
+Route::get('/category/{id}',[CategoryController::class ,'show'])
+->name('category.show');
+Route::put('/category/{id}',[CategoryController::class ,'update'])
+->name('category.update');
+Route::delete('/category/{id}',[CategoryController::class ,'destroy'])
+->name('category.destroy');
+*/
 
-
+Route::resource('category',CategoryController::class);
 

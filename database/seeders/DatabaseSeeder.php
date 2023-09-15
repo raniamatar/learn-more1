@@ -35,8 +35,8 @@ class DatabaseSeeder extends Seeder
         //     'email'=>'admin@admin',
         //     'password'=>Hash::make('123456789'),
         // ]);
-        // Category::factory(20)->create();
-        // SubCategory::factory(40)->create();
+        Category::factory(20)->create();
+        SubCategory::factory(40)->create();
         Product::factory(40)->create();
 
 

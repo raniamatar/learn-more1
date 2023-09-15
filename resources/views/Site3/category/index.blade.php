@@ -8,6 +8,10 @@
   </head>
   <body>
     <div class="container my-5">
+        @include('parts.session')
+        <div class="mb-5">
+            <a href="{{route('category.create')}}" class="btn btn-info w-100">Add</a>
+        </div>
     <table class="table">
         <thead>
           <tr>
@@ -24,7 +28,16 @@
             <th scope="row">{{$loop->index+1}}</th>
             <td>{{ $i->name }}</td>
             <td>{{ $i->description}}</td>
-            <td><a href="{{route('site3.sub_category.index',$i->id)}}" class="btn btn-success">View Sub Categories</a></td>
+            <td>
+            <a href="{{route('site3.sub_category.index',$i->id)}}" class="btn btn-success">View Sub Categories</a>
+            <a href="{{route('category.edit',$i->id)}}" class="btn btn-info">Edit</a>
+            <form method="POST"   action="{{route('category.destroy',$i->id)}}">
+                @csrf
+                @method('delete')
+                <button onclick="return confirm('Are you sure??')"  type="submit" class="btn btn-danger">Delete</button>
+
+            </form>
+           </td>
            </tr>
 
             @endforeach

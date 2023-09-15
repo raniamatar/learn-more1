@@ -19,7 +19,8 @@ return new class extends Migration
             $table->text('description');
             $table->integer('quantity');
             $table->double('price');
-            $table->foreignId('sub_category_id')->constrained('sub_categories');
+            $table->foreignId('sub_category_id')->constrained('sub_categories')
+            ->cascadeOnDelete();
             $table->timestamps();
         });
     }
